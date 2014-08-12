@@ -1,0 +1,13 @@
+ru:
+  posts:
+    index:
+      Listing posts: Список сообщений
+      Author: Автор
+      Content: Содержание
+      New Post: Новое сообщение
+      Show: Показать
+      Edit: Редактировать
+      Destroy: Уничтожить
+    new:
+      New post: Новое сообщение
+      Back: Обратно
