@@ -1,4 +1,11 @@
 ru:
+  helpers:
+    submit:
+      post:
+        create: Создать %{model}
+        submit:
+
+
   posts:
     index:
       Listing posts: Список сообщений
