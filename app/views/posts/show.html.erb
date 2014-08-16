@@ -1,14 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Author:</strong>
+  <strong>author:</strong>
   <%= @post.author %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>content:</strong>
   <%= @post.content %>
 </p>
+<%= content_tag :h2, t('.comments') %>
+<% @post.comments.each do |comment| %>
+	<p>
+		<strong>author:</strong>
+		<%= comment.author %>
+		<strong>content:</strong>
+		<%= comment.content %>
+	</p>
+<% end %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= content_tag :h2, t('add_comment') %>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  <p>
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to t('.edit'), edit_post_path(@post) %> |
+<%= link_to t('.back'), posts_path %>

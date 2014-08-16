@@ -2,19 +2,16 @@ ru:
   helpers:
     submit:
       post:
-        create: Создать %{model}
-        submit:
-
-
+        create: Создать сообщение
   posts:
     index:
-      Listing posts: Список сообщений
-      Author: Автор
-      Content: Содержание
-      New Post: Новое сообщение
-      Show: Показать
-      Edit: Редактировать
-      Destroy: Уничтожить
+      listing_posts: Список сообщений
+      author: Автор
+      content: Содержание
+      new_post: Новое сообщение
+      show: Показать
+      edit: Редактировать
+      destroy: Уничтожить
     new:
-      New post: Новое сообщение
+      new_post: Новое сообщение
       Back: Обратно
