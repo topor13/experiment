@@ -4,3 +4,5 @@ ru:
       post:
         author: 'Автор'
         content: 'Содержание'
+      comment:
+        content: 'Содержание'

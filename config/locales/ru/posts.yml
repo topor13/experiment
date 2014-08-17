@@ -1,8 +1,18 @@
 ru:
+  add_comment: Комментировать
+  devise:
+    sessions:
+      user:
+        signed_in: "Вход выполнен."
+        signed_out: "До свидания!"
+        already_signed_out: "Снова До свидания!"
   helpers:
     submit:
       post:
         create: Создать сообщение
+        update: 'Записать'
+      comment:
+        create: Отправить
   posts:
     index:
       listing_posts: Список сообщений
@@ -14,4 +24,25 @@ ru:
       destroy: Уничтожить
     new:
       new_post: Новое сообщение
-      Back: Обратно
+      back: Обратно
+    show:
+      author: 'Автор:'
+      content: 'Содержание:'
+      comments: 'Комментарии:'
+      edit: 'Редактировать'
+      back: 'Обратно'
+    edit:
+      show: 'Показать'
+      back: 'Обратно'
+      editing_post: 'Редактирование записи'
+    create:
+      created: 'Запись успешно создана'
+    update:
+      updated: 'Запись обновлена'
+    destroy:
+      destroyed: 'Запись удалена'
+  layouts:
+    application:
+      sign_in: 'Вход'
+      sign_out: 'Выход'
+      sign_up: 'Зарегистрироваться'

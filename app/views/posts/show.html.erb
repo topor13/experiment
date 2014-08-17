@@ -1,18 +1,18 @@
 <p>
-  <strong>author:</strong>
+  <strong><%= t('.author') %></strong>
   <%= @post.author %>
 </p>
 
 <p>
-  <strong>content:</strong>
+  <strong><%= t('.content') %></strong>
   <%= @post.content %>
 </p>
 <%= content_tag :h2, t('.comments') %>
 <% @post.comments.each do |comment| %>
 	<p>
-		<strong>author:</strong>
-		<%= comment.user_id %>
-		<strong>content:</strong>
+		<strong><%= t('.author') %></strong>
+		<%= comment.user.email %>
+		<strong><%= t('.content') %></strong>
 		<%= comment.content %>
 	</p>
 <% end %>
