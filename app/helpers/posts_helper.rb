@@ -1,6 +1,5 @@
 module PostsHelper
-	def title_mod()
-		title = page_title
-		
+	def title(page_title)
+		content_for :title, 'TST'
 	end
 end

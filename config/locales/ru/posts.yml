@@ -1,11 +1,17 @@
 ru:
   add_comment: Комментировать
   devise:
-    sessions:
+    registrations:
       user:
-        signed_in: "Вход выполнен."
-        signed_out: "До свидания!"
-        already_signed_out: "Снова До свидания!"
+        signed_up: 'Поздравляем! Вы успешно зарегистрировались в системе.'
+    sessions:
+      new:
+        log_in: 'Вход'
+        log_in_button: 'Войти'
+      user:
+        signed_in: 'Вход выполнен.'
+        signed_out: 'До свидания!'
+        already_signed_out: 'Снова До свидания!'
   helpers:
     submit:
       post:
