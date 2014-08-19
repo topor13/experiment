@@ -12,6 +12,9 @@
 <% if current_user %>
   <%= current_user.email %> |
   <%= link_to t('.sign_out'), destroy_user_session_path, method: :DELETE %>
+  <% current_user.roles.each do |role| %>
+    <%= content_tag :li, role.name %>
+  <% end %>
 <% else %>
   <%= link_to t('.sign_in'), new_user_session_path %>
 <% end %> 
