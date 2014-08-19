@@ -16,7 +16,7 @@
 		<%= comment.content %>
 	</p>
 <% end %>
-<% if user_signed_in? %>
+<% #if user_signed_in? %>
 <%= content_tag :h2, t('add_comment') %>
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <p>
@@ -27,8 +27,8 @@
     <%= f.submit %>
   </p>
 <% end %>
-<% else %>
-<% end %>
+<% #else %>
+<% #end %>
 
 <%= link_to t('.edit'), edit_post_path(@post) %> |
 <%= link_to t('.back'), posts_path %>
