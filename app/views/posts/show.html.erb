@@ -14,6 +14,7 @@
 		<%= comment.user.email %>
 		<strong><%= t('.content') %></strong>
 		<%= comment.content %>
+    <%= link_to t('.destroy'), post_comment_path(comment.post_id, comment.id), method: :delete %>
 	</p>
 <% end %>
 <% #if user_signed_in? %>
