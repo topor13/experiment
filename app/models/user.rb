@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :comments, -> { uniq }
+  has_many :posts, -> { uniq }
   has_many :user_roles
   has_many :roles, through: :user_roles
   # Include default devise modules. Others available are:

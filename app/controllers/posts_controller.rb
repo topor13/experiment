@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: t('.created') }
@@ -67,9 +67,9 @@ class PostsController < ApplicationController
       @post = case action_name
       when 'new', 'index' then Post.new
       when 'create' then Post.new(post_params)
-      when 'update', 'show' then Post.find(params[:id])
+      when 'update', 'show', 'edit', 'destroy' then post = Post.find(params[:id])
       end
-      raise 'error' unless @post.cando?(action_name, current_user)
+      raise 'error' unless @post.cando?(action_name, current_user, post)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
