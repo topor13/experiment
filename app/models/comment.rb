@@ -9,7 +9,7 @@ class Comment < ActiveRecord::Base
     when 'create' then current_user ? true : false
     when 'destroy' then 
       if current_user
-        if current_user.roles.where(name: 'admin')
+        if current_user.id == comment.user.id || current_user.id == comment.post.user.id
           true
         else
           false

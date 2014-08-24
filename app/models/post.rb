@@ -3,6 +3,11 @@ class Post < ActiveRecord::Base
   has_many :comments
   belongs_to :user
 
+  ## validations
+  validates :content,
+    :presence => true,
+    :length => { minimum: 5 }
+
   # after_create :first_comment
 
   ## etc

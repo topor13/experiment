@@ -1,5 +1,5 @@
 module ApplicationHelper
-	def title()
-	content_for :title, page_title.to_s
-	end
+  def title
+    current_user ? current_user.name.to_s : 'exp'
+  end
 end
