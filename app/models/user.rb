@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   def cando?(action_name, current_user, user, *params)
     case action_name
-    when 'index', 'edit', 'update' then (current_user && current_user.roles.where(name: 'admin')) ? true : false
+    when 'index', 'edit', 'update' then (current_user && current_user.roles.where(name: 'admin').exists?) ? true : false
     else false
     end
   end

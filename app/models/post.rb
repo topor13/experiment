@@ -14,15 +14,8 @@ class Post < ActiveRecord::Base
   def cando?(action_name, current_user, post, *params)
     case action_name
     when 'index', 'show' then true
-    when 'new', 'create', 'update', 'destroy' then 
-      if current_user
-        current_user.roles.each do |role|
-          role.name.include?('author') ? true : false
-        end
-      else
-        false
-      end
-    when 'edit' then (current_user && current_user.id == post.user.id) ? true : false
+    when 'new', 'create', 'update', 'destroy' then current_user && current_user.roles.where(name: 'author').exists? ? true : false
+    when 'edit', 'update' then (current_user && current_user.id == post.user.id) ? true : false
     else false
     end
   end

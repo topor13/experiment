@@ -10,6 +10,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      @user.roles.delete_all
+      (params[:role_id] || []).each { |i| @user.roles << Role.find(i) }
       redirect_to users_path
     end
   end
@@ -26,6 +28,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :name)
+      params.require(:user).permit(:email, :name, :role_id)
     end
 end

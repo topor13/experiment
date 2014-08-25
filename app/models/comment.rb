@@ -7,18 +7,7 @@ class Comment < ActiveRecord::Base
     case action_name
     when 'show' then true
     when 'create' then current_user ? true : false
-    when 'destroy' then 
-      if current_user
-        if current_user.id == comment.user.id || current_user.id == comment.post.user.id
-          true
-        else
-          false
-        end
-      # elsif current_user.id == comment.user.id
-      #   true
-      else
-        false
-      end
+    when 'destroy' then (current_user && ((current_user.id == comment.user.id) || (current_user.id == comment.post.user.id))) ? true : false
     else false
     end
   end
