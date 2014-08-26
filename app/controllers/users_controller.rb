@@ -10,8 +10,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      @user.roles.delete_all
-      (params[:role_id] || []).each { |i| @user.roles << Role.find(i) }
+      # @user.roles.delete_all
+      # (params[:role_id] || []).each { |i| @user.roles << Role.find(i) }
       redirect_to users_path
     end
   end
@@ -20,14 +20,14 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_resource
       @user = case action_name
-      when 'index' then User.all
-      when 'edit', 'update' then user = User.find(params[:id])
+      when 'index' then User.new
+      when 'edit', 'update' then User.find(params[:id])
       end
-      raise 'error' unless User.new.cando?(action_name, current_user, user)
+      raise 'error' unless @user.cando?(action_name, current_user)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :name, :role_id)
+      params.require(:user).permit(:email, :name, :avatar, :avatar_cache, user_roles_attributes: [:id, :role_id] )
     end
 end

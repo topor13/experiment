@@ -2,4 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to t('.back'), users_path %>
+<%= link_to t('.back'), posts_path %>
+<%= link_to t('.users_list'), users_path if current_user && current_user.roles.where(name: 'admin').exists? %>

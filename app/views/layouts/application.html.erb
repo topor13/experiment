@@ -11,6 +11,7 @@
 <p class="alert"><%= alert %></p>
 <% if current_user %>
   <%= current_user.email %> |
+  <%= link_to "Edit", edit_user_path(current_user.id) %> |
   <%= link_to t('.sign_out'), destroy_user_session_path, method: :DELETE %>
   <% current_user.roles.each do |role| %>
     <% if role.name.include?('admin') %>

@@ -24,9 +24,9 @@ class CommentsController < ApplicationController
   def set_resource
     @comment = case action_name
     when 'create' then Comment.create
-    when 'destroy' then comment = Comment.find(params[:id])
+    when 'destroy' then Comment.find(params[:id])
     end
-    raise 'error' unless @comment.cando?(action_name, current_user, comment)
+    raise 'error' unless @comment.cando?(action_name, current_user)
   end
 	private
 		def comment_params

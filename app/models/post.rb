@@ -11,11 +11,11 @@ class Post < ActiveRecord::Base
   # after_create :first_comment
 
   ## etc
-  def cando?(action_name, current_user, post, *params)
+  def cando?(action_name, current_user, *params)
     case action_name
     when 'index', 'show' then true
     when 'new', 'create', 'update', 'destroy' then current_user && current_user.roles.where(name: 'author').exists? ? true : false
-    when 'edit', 'update' then (current_user && current_user.id == post.user.id) ? true : false
+    when 'edit', 'update' then (current_user && current_user.id == self.user.id) ? true : false
     else false
     end
   end
