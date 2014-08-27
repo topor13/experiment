@@ -16,4 +16,4 @@
 /tmp
 
 # Ignore all upload pictures
-/public/upload/*
+/public/uploads/*
